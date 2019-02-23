@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for post in posts.all %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="#" data-target="#modalIMG" data-toggle="modal" class="color-gray-darker c6 td-hover-none">
+                <div class="ba-0 ds-1">
+                    <img src="{{ post.image.url }}" height=200>
+                            <div class="card-body">
+                                <h4 class="card-title color-gray-darker">{{ post.title }}</h4>
+                                <p class="card-text color-gray-darker">{{ post.content }}</p>
+                                <p class="card-text color-gray-darker">{{ post.published }}</p>
+                            </div>
+                </div>	
+            </a>
+        </div>
+    </div>
+</div>
+    
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="{{ post.image.url }}" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="{{ post.image.url }}" target="_blank">다운로드</a></div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal" type="button">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

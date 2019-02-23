@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>술쟁이 사자처럼!</h1>
+<br>
+<a href = "{% url 'new' %}">새 글 쓰기</a>
+<br>
+<a href = "{% url 'icecream' %}">아이스크림으로 만들기</a>
+<br>
+<a href = "{% url 'beverage' %}">음료수로 만들기</a>
+<br>
+<a href = "{% url 'others' %}">기타 등등으로 만들기</a>
+{% endblock %}
